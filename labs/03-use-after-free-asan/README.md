@@ -47,11 +47,18 @@ This creates the executable:
 buggy
 ```
 
-The program is compiled with AddressSanitizer using:
+The program is compiled with debugging symbols and AddressSanitizer using:
 
 ```text
--fsanitize=address
+-g -O0 -fsanitize=address -fno-omit-frame-pointer
 ```
+
+These flags make the AddressSanitizer report easier to understand:
+
+* `-g` adds debug symbols, so the report can show source file names and line numbers
+* `-O0` disables compiler optimizations, which keeps the code easier to debug
+* `-fsanitize=address` enables AddressSanitizer
+* `-fno-omit-frame-pointer` improves the quality of stack traces
 
 ## Run the buggy program
 
