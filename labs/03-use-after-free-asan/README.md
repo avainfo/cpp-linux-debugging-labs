@@ -30,10 +30,9 @@ This is called a use-after-free.
 
 ```text
 buggy.c   - Program with an intentional use-after-free bug
-Makefile  - Builds the buggy version with AddressSanitizer enabled
+fixed.c   - Corrected version with proper memory lifetime handling
+Makefile  - Builds both versions with AddressSanitizer enabled
 ```
-
-A fixed version will be added later.
 
 ## Build
 
@@ -41,13 +40,14 @@ A fixed version will be added later.
 make
 ```
 
-This creates the executable:
+This creates two executables:
 
 ```text
 buggy
+fixed
 ```
 
-The program is compiled with debugging symbols and AddressSanitizer using:
+The programs are compiled with debugging symbols and AddressSanitizer using:
 
 ```text
 -g -O0 -fsanitize=address -fno-omit-frame-pointer
@@ -119,6 +119,26 @@ At this point, `session` points to freed memory.
 
 The pointer value still exists, but it is no longer valid.
 
+## Run the fixed program
+
+```bash
+./fixed
+```
+
+Expected result:
+
+```text
+Opening device session...
+Session opened for sensor-gateway-01
+Printing session summary before close...
+Device ID: 101
+Device name: sensor-gateway-01
+Packets received: 12
+Closing device session...
+```
+
+The fixed version prints the session summary while the allocated memory is still valid, then releases the session with `free()`.
+
 ## Clean build files
 
 ```bash
@@ -142,4 +162,3 @@ A good debugging workflow is:
 5. Find where the memory was freed.
 6. Find where the memory was allocated.
 7. Fix the ownership and lifetime logic.
-
