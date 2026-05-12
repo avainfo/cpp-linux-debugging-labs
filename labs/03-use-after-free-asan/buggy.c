@@ -1,3 +1,14 @@
+/*
+ * Ava Info Conseils
+ *
+ * Author: Antonin Do Souto
+ * Contact: antonindosouto@gmail.com
+ *
+ * Copyright (c) 2026 Antonin Do Souto
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
