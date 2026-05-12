@@ -105,15 +105,11 @@ cpp-linux-debugging-labs/
 ├── labs/
 │   ├── 01-segfault-gdb/
 │   ├── 02-memory-leak-valgrind/
-│   ├── 03-use-after-free-asan/
-│   ├── 04-deadlock-gdb/
-│   ├── 05-missing-file-strace/
-│   └── 06-systemd-service-crash/
-├── docs/
-│   └── debugging-methodology.md
+│   └── 03-use-after-free-asan/
 ├── LICENSE
 └── README.md
 ```
+Additional labs and documentation are planned and will be added progressively.
 
 ## Commercial relevance
 
