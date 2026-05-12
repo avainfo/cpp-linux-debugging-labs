@@ -27,14 +27,17 @@ static DeviceStatus *find_device(DeviceStatus devices[], size_t count, int id)
 			return &devices[i];
 	}
 
-	printf("Error: device with id %d was not found.\n", id);
+    fprintf(stderr, "Error: device with id %d was not found.\n", id);
 	return NULL;
 }
 
 static void print_device_report(DeviceStatus *device)
 {
-	if (device == NULL)
-		return;
+    if (device == NULL)
+    {
+        fprintf(stderr, "Error: cannot print report for NULL device.\n");
+        return;
+	}
 	printf("Device name: %s\n", device->name);
 	printf("Device ID: %d\n", device->id);
 	printf("Battery: %d%%\n", device->battery_percent);
