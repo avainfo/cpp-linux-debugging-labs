@@ -1,6 +1,6 @@
 CC := gcc
 
-CFLAGS := -std=c11 -g -O0 -Wall -Wextra -Wpedantic -fsanitize=address  -fno-omit-frame-pointer
+CFLAGS := -std=c11 -g -O0 -Wall -Wextra -Wpedantic -fsanitize=address -fno-omit-frame-pointer
 
 .PHONY: all clean
 
