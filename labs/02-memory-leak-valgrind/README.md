@@ -30,8 +30,6 @@ buggy.c   - Program with an intentional memory leak
 Makefile  - Builds the buggy version
 ```
 
-A fixed version will be added later.
-
 ## Build
 
 ```bash
