@@ -27,7 +27,8 @@ The program finishes without crashing, but Valgrind reports a memory leak.
 
 ```text
 buggy.c   - Program with an intentional memory leak
-Makefile  - Builds the buggy version
+fixed.c   - Corrected version with proper memory cleanup
+Makefile  - Builds both versions
 ```
 
 ## Build
@@ -36,10 +37,11 @@ Makefile  - Builds the buggy version
 make
 ```
 
-This creates the executable:
+This creates two executables:
 
 ```text
 buggy
+fixed
 ```
 
 ## Run the buggy program normally
@@ -106,6 +108,20 @@ The caller owns the memory returned by `load_device_readings()`.
 Because `main()` receives the allocated pointer, `main()` is responsible for freeing it when the data is no longer needed.
 
 The buggy version forgets this step.
+
+## Run the fixed program with Valgrind
+
+```bash
+valgrind --leak-check=full --show-leak-kinds=all ./fixed
+```
+
+Expected result:
+
+```text
+All heap blocks were freed -- no leaks are possible
+```
+
+The fixed version releases the memory with `free(readings)` after the allocated data is no longer needed.
 
 ## Clean build files
 
