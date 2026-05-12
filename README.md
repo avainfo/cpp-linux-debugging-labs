@@ -59,13 +59,18 @@ Optional but recommended:
 - ThreadSanitizer
 - CMake
 
-## Labs
+## Current labs
 
 | Lab | Topic | Main tool |
 |---|---|---|
 | 01 | Segmentation fault | GDB |
 | 02 | Memory leak | Valgrind |
 | 03 | Use-after-free | AddressSanitizer |
+
+## Planned labs
+
+| Lab | Topic | Main tool |
+|---|---|---|
 | 04 | Deadlock | GDB |
 | 05 | Missing file / syscall error | strace |
 | 06 | Crashing Linux service | systemd + journalctl |
